@@ -1,6 +1,5 @@
 package com.example.demo.curso.boot.dao;
 
-
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;

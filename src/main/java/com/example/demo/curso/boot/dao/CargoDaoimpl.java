@@ -4,9 +4,6 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.curso.boot.domain.Cargo;
 @Repository
-public abstract class CargoDaoimpl extends AbstractDao<Cargo, Long> implements CargoDao {
-
-
-	
+public class CargoDaoImpl extends AbstractDao<Cargo, Long> implements CargoDao {
 
 }
