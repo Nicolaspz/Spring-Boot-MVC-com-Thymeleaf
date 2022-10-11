@@ -34,7 +34,7 @@ public class DepartamentoController {
 public String Salvar(Departamento departamento, RedirectAttributes attr) {
 	
 	service.salvar(departamento);
-	attr.addAttribute("success", "Despartamento inserido com sucesso.");
+	attr.addFlashAttribute("success", "Despartamento inserido com sucesso.");
 	return "redirect:/departamentos/cadastrar";
 	
 }

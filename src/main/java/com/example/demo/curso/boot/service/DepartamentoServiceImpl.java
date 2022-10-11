@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.demo.curso.boot.dao.DepartamentoDao;
 
 import com.example.demo.curso.boot.domain.Departamento;
-@Service @Transactional(readOnly = false) 
+@Service  @Transactional(readOnly = false) 
 public class DepartamentoServiceImpl implements DepartamentoService {
 
 	@Autowired

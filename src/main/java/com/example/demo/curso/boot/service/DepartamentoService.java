@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.demo.curso.boot.domain.Departamento;
 
 public interface DepartamentoService {
+	
 	void salvar(Departamento departamento);
 
     void editar(Departamento departamento);

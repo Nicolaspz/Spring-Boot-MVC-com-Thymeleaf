@@ -2,13 +2,16 @@ package com.example.demo.curso.boot.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.curso.boot.dao.CargoDao;
 import com.example.demo.curso.boot.domain.Cargo;
+
 @Service @Transactional(readOnly = false)
 public class CargoServiceImpl implements CargoService {
+	@Autowired
 	private CargoDao dao;
 	
 
@@ -40,6 +43,15 @@ public class CargoServiceImpl implements CargoService {
 	public List<Cargo> buscarTodos() {
 		// TODO Auto-generated method stub
 		return dao.findAll();
+	}
+
+	@Override
+	public boolean TemFuncionario(Long id) {
+		if(buscarPorId(id).getFuncionarios().isEmpty()) {
+			return false;
+		}
+		return true;
+		
 	}
 
 }
