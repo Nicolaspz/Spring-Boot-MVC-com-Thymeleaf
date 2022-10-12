@@ -1,5 +1,6 @@
 package com.example.demo.curso.boot.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,25 @@ public class FuncionarioServiceImpl implements FuncionarioService{
 		// TODO Auto-generated method stub
 		return dao.findAll();
 	}
+
+	@Override
+	public List<Funcionario> buscarPorNome(String nome) {
+		// TODO Auto-generated method stub
+		return dao.findByNome(nome);
+	}
+
+	@Override
+	public List<Funcionario> BuscarPorCargo(Long id) {
+		// TODO Auto-generated method stub
+		return dao.findByCargoId(id);
+	}
+
+	@Override
+	public List<Funcionario> buscarPorDatas(LocalDate entrada, LocalDate saida) {
+		// TODO Auto-generated method stub
+		return dao.findByDataEntradaDataSaida(entrada, saida);
+	}
+
+	
 
 }
