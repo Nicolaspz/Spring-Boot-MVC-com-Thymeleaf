@@ -3,6 +3,8 @@ package com.example.demo.curso.boot.domain;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 
 @SuppressWarnings("serial")
@@ -10,9 +12,12 @@ import javax.persistence.*;
 @Table(name = "DEPARTAMENTOS")
 public class Departamento extends AbstratEntity<Long> {
 	
+	@Size(min = 3, max = 60, message = "O nome do departamento deve ter entre 3 a 60 caracteres. ")
+	@NotBlank(message = "Informe o nome.")
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	String nome;
-
+  
+	
 	public String getNome() {
 		return nome;
 	}

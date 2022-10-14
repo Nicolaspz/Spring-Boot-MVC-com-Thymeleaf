@@ -1,8 +1,11 @@
 package com.example.demo.curso.boot.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,8 +34,10 @@ public class DepartamentoController {
 	}
 
 @PostMapping("/salvar")
-public String Salvar(Departamento departamento, RedirectAttributes attr) {
-	
+public String Salvar(@Valid Departamento departamento,BindingResult result, RedirectAttributes attr) {
+	if(result.hasErrors()) {
+		return "redirect:/departamentos/cadastrar";
+	}
 	service.salvar(departamento);
 	attr.addFlashAttribute("success", "Despartamento inserido com sucesso.");
 	return "redirect:/departamentos/cadastrar";
@@ -44,7 +49,10 @@ public String preEditar(@PathVariable("id") Long id, ModelMap model) {
 	return "/departamento/cadastro";
 }
 @PostMapping("/editar")
-public String editar(Departamento departamento,RedirectAttributes attr) {
+public String editar(@Valid Departamento departamento,BindingResult result,RedirectAttributes attr) {
+	if(result.hasErrors()) {
+		return "redirect:/departamentos/cadastrar";
+	}
 	service.editar(departamento);
 	attr.addFlashAttribute("success", "Departamento Alterado com sucesso.");
 	return "redirect:/departamentos/cadastrar";
