@@ -12,8 +12,8 @@ import javax.validation.constraints.Size;
 @Table(name = "DEPARTAMENTOS")
 public class Departamento extends AbstratEntity<Long> {
 	
+	@NotBlank
 	@Size(min = 3, max = 60, message = "O nome do departamento deve ter entre 3 a 60 caracteres. ")
-	@NotBlank(message = "Informe o nome.")
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	String nome;
   
